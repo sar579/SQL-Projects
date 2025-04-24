@@ -1,106 +1,70 @@
-#  Advanced SQL Baseball Analysis
-This project performs advanced SQL analysis on a baseball-related dataset using MySQL. The analysis is divided into four main sections: School Analysis, Salary Analysis, Player Career Analysis, and Player Comparison Analysis.
+## Overview
 
-Database
-Before running the queries, connect to the database:
+As part of my continuous learning, I recently completed the Advanced SQL Querying course from Maven Analytics, where I explored advanced SQL techniques and applied them to a real-world baseball analytics project.
 
-sql
-Copy
-Edit
+For this project, I analyzed decades of player statistics using the Sean Lahman Baseball Database to uncover insights into salary trends, team impact, and player performance evolution. To achieve this, I leveraged:
 
-USE advanced_sql_baseball_analysis;
+*   Multi-Table Analysis: Combining data across multiple tables with JOINs (INNER, LEFT, RIGHT, CROSS, and SELF JOINs)
+    
+*   Subqueries & CTEs: Breaking down complex queries to track player transfers, salary progression, and team dynamics
+    
+*   Window Functions: Calculating rankings, cumulative salaries, and running totals for performance analysis
+    
+*   Functions by Data Type: Manipulating dates, strings, and numerical data to ensure accuracy and consistency
+    
+*   Pivoting & Rolling Calculations: Using CASE statements and window functions to analyze historical trends
+    
 
-PART I: School Analysis
-Explore the educational background of players and the influence of different schools over time.
+This project not only strengthened my SQL expertise but also reinforced the power of data-driven insights in sports analytics.
 
-Tasks:
-View schools and school_details tables.
+## About the data
 
-Count schools producing players by decade using numeric functions.
+Full Sean Lahman's Baseball data is available at: [https://www.kaggle.com/datasets/freshrenzo/lahmanbaseballdatabase](https://www.kaggle.com/datasets/freshrenzo/lahmanbaseballdatabase). 
 
-Identify the top 5 schools producing the most players (JOINs).
+This project uses some tables from that dataset and is available as .sql file to use if you need to create that database and tables.
 
-For each decade, list the top 3 schools by number of players using ROW_NUMBER() window function.
+## Project Premise
 
-PART II: Salary Analysis
-Evaluate team spending patterns and their financial strategies.
+*   You've just been hired as a Data Analyst Intern for Major League Baseball (MLB), who has recently gotten access to a large amount of historical player data.
+    
+*   You have access to decades worth of data including player statistics like schools attended, salaries, teams played for, height and weight, and more.
+    
+*   Your task is to use advanced SQL querying techniques to track how player statistics have changed over time and across different teams in the league.
+    
 
-Tasks:
-View the salaries table.
+## Questions
 
-Identify the top 20% of teams by average annual spending (NTILE window function).
+### Part 1
 
-Show cumulative team spending over the years (Rolling SUM).
+a) In each decade, how many schools were there that produced MLB players?
 
-Find the first year each team's cumulative salary surpassed $1 billion.
 
-PART III: Player Career Analysis
-Delve into player careers — ages, team affiliations, and career spans.
+b) What are the names of the top 5 schools that produced the most players?
 
-Tasks:
-View and count entries in the players table.
 
-Calculate players’ starting age, ending age, and career length.
+c) For each decade, what were the names of the top 3 schools that produced the most players?
 
-Determine starting and ending teams for each player using JOINs.
+### Part 2
 
-Identify players who played over 10 years and stayed on the same team.
+a) Return the top 20% of teams in terms of average annual spending
 
-PART IV: Player Comparison Analysis
-Perform comparative analysis between players based on birthdays, batting stats, and physical attributes.
+b) For each team, show the cumulative sum of spending over the years
 
-Tasks:
-View the players table.
+c) Return the first year that each team's cumulative spending surpassed 1 billion
 
-Find players sharing the same birthday using GROUP_CONCAT (string aggregation).
+### Part 3
 
-Show batting preferences (Right, Left, Both) per team — includes a more accurate approach using DISTINCT.
+a) For each player, calculate their age at their first (debut) game, their last game, and their career length (all in years). Sort from longest career to shortest career.
 
-Analyze changes in average height and weight at debut over decades using LAG() window functions.
+b) What team did each player play on for their starting and ending years?
 
-SQL Features Used
-Window Functions: ROW_NUMBER, NTILE, LAG, SUM OVER
+c) How many players started and ended on the same team and also played for over a decade?
 
-Joins: INNER JOIN, LEFT JOIN
+### Part 4
 
-Datetime Functions: TIMESTAMPDIFF, CAST, CONCAT
+a) Which players have the same birthday?
 
-Aggregations: COUNT, AVG, SUM, GROUP BY
+b) Create a summary table that shows for each team, what percent of players bat right, left and both.
 
-String Functions: GROUP_CONCAT, CONCAT
 
-CTEs (Common Table Expressions): For step-wise query structuring
-
-Compatibility Notes
-This project is written for MySQL, but comments are included throughout with alternatives for:
-
-PostgreSQL
-
-SQL Server
-
-Oracle
-
-SQLite
-
-Dataset Sources
-This project assumes the presence of a database with the following key tables:
-
-1. players
-
-2. salaries
-
-3. schools
-
-4. school_details
-
-These tables are commonly available in publicly shared baseball datasets like the Lahman Baseball Database.
-
-How to Run
-Connect to your MySQL database.
-
-Run the queries in the order provided for each section.
-
-Analyze results using your SQL client or export as needed.
-
-License
-This project is open-source and free to use under the MIT License.
+c) How have average height and weight at debut game changed over the years, and what's the decade-over-decade difference?
