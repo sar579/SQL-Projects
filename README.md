@@ -38,9 +38,7 @@ This project uses some tables from that dataset and is available as .sql file to
 
 a) In each decade, how many schools were there that produced MLB players?
 
-
 b) What are the names of the top 5 schools that produced the most players?
-
 
 c) For each decade, what were the names of the top 3 schools that produced the most players?
 
@@ -65,6 +63,5 @@ c) How many players started and ended on the same team and also played for over 
 a) Which players have the same birthday?
 
 b) Create a summary table that shows for each team, what percent of players bat right, left and both.
-
 
 c) How have average height and weight at debut game changed over the years, and what's the decade-over-decade difference?
